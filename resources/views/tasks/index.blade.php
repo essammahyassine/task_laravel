@@ -23,9 +23,14 @@
                         <td>{{$task->description}}</td>
                         <td>
                             
-                            <a name="" id="" class="btn btn-primary" href="{{ route('tasks.edit',$task->id)}}" role="button">Edit</a>
-                            <a name="" id="" class="btn btn-danger" href="{{ route('tasks.destroy',$task->id)}}" role="button">Delete</a>
-                        
+                            <a class="btn btn-primary" href="{{ route('tasks.edit',$task->id)}}" role="button">Edit</a>
+                        </td>
+                        <td>
+                            <form action="{{ route('tasks.destroy',$task->id)}}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-danger" type="submit">Delete</button>
+                              </form>
                         </td>
                         
                     </tr>
